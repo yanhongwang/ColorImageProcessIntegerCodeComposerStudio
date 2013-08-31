@@ -1,0 +1,39 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="ColorImageProcess"
+ProjectDir="D:\ColorImageProcessCCS_Integer\"
+ProjectType=Executable
+CPUFamily=TMS320C62XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="AutoWhiteBalance.c"
+Source="C:\CCStudio\c6000\cgtools\lib\rts6400.lib"
+Source="ColorImageProcess.c"
+Source="RGBCIELAB.c"
+Source="ColorImageProcess.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -o3 -fr"D:\ColorImageProcessCCS_Integer\Debug" -i"$(Install_dir)\c6000\dsk6416\include" -mv6400
+
+["Compiler" Settings: "Release"]
+Options=-q -o3 -fr"D:\ColorImageProcessCCS_Integer\Release" -mv6400
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v6x
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v6x
+
+["Linker" Settings: "Debug"]
+Options=-c -heap0x400 -o".\Debug\ColorImageProcess.out" -stack0x400 -x
+
+["Linker" Settings: "Release"]
+Options=-c -heap0x400 -o".\Release\ColorImageProcess.out" -stack0x400 -x
+
